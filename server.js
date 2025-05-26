@@ -15,6 +15,17 @@ app.get('/roll/:number', (req, res) => {
 
 
 
+const collectibles = [
+    { name: 'shiny ball', price: 5.95 },
+    { name: 'autographed picture of a dog', price: 10 },
+    { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
+  ];
+
+  app.get('/collectibles/:index', (req, res) => {
+    const index = parseInt(req.params.index)
+    res.send(`so... you're interested in the ${collectibles[index].name}? it's yours! for the low price of ${collectibles[index].price}`)
+  })
+
 app.listen(3000, () => {
     console.log('reporting from port 3000')
 })
